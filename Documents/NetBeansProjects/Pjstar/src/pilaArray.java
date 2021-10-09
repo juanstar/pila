@@ -10,7 +10,7 @@
  */
 public class pilaArray implements IPila {
 
-    private static final int TOP = -1;
+    private static int TOP = -1;
     private Object s[];
     private int capacidad = 0;
 
@@ -35,16 +35,28 @@ public class pilaArray implements IPila {
 
     @Override
     public void push(Object o) {
+        if (longitud()<capacidad) s[++TOP]=0; 
+            
+        
 
     }
 
     @Override
     public Object pop() {
-        return null;
-    }
+        Object aux;
+        
+        if (esVacia()) return null;
+        aux = s[TOP];
+        s[TOP--] = null;
+        return aux;
+        
+                }
 
     @Override
     public Object primero() {
-        return null;
+        if (esVacia()) return null;
+        else return s[TOP];
+            
+        
     }
 }
